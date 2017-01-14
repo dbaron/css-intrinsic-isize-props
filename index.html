@@ -1488,13 +1488,13 @@ without having other effects on layout.</p>
       <td>visual
      <tr>
       <th>Computed value:
-      <td>keywords as specified, or the absolute length
+      <td>as specified, with lengths made absolute
      <tr>
       <th>Canonical order:
       <td>per grammar
      <tr>
       <th>Animation type:
-      <td>length or discrete
+      <td>length or discrete <span class="issue" id="issue-bad-anim-type"><a class="self-link" href="#issue-bad-anim-type"></a>The animation type needs to be more formal</span>
    </table>
    <dl>
     <dt><dfn class="dfn-paneled css" data-dfn-for="min-content-inline-size, max-content-inline-size" data-dfn-type="value" data-export="" id="valdef-min-content-inline-size-auto">auto</dfn> 
@@ -1519,20 +1519,20 @@ without having other effects on layout.</p>
 		consider the computed value of <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>.
 		(This is the normal behavior.) 
    </dl>
-   <p class="issue" id="issue-2ce2a306"><a class="self-link" href="#issue-2ce2a306"></a> The current proposal uses logical names only (inline-size)
+   <p class="issue" id="issue-physical-names"><a class="self-link" href="#issue-physical-names"></a> The current proposal uses logical names only (inline-size)
 without providing physical names (width, height).  This could be done.
 It would significantly increase the number of new properties, while
 creating some new properties that would only work some of the time,
 and require yet another set of properties that have physical and logical
-equivalents.</p>
-   <p class="issue" id="issue-ec53a526"><a class="self-link" href="#issue-ec53a526"></a> The way this proposal allows separately ignoring or honoring <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a> adds a good bit of complexity.  Is it useful enough to be worthwhile?</p>
-   <p class="issue" id="issue-044b86f4"><a class="self-link" href="#issue-044b86f4"></a> Need to decide whether
+equivalents. </p>
+   <p class="issue" id="issue-ignoring-props-complexity"><a class="self-link" href="#issue-ignoring-props-complexity"></a> The way this proposal allows separately ignoring or honoring <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a> adds a good bit of complexity.  Is it useful enough to be worthwhile? </p>
+   <p class="issue" id="issue-length-affect-keywords"><a class="self-link" href="#issue-length-affect-keywords"></a> Need to decide whether
 the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value" title="Expands to: em | vb | ch | cm | vh | vi | vw | ex | in | ic | pt | px | lh | pc | rem | rlh | vmax | advance measure | vmin | mm | q">&lt;length></a> value
 affects the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-min-content">min-content</a>, <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-max-content">max-content</a>,
 and <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-fit-content">fit-content</a> keywords
-for <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, etc.</p>
-   <p class="issue" id="issue-04674bf3"><a class="self-link" href="#issue-04674bf3"></a> Add example of some 100%-width images in a grid track whose size
-is determined by something else.</p>
+for <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, etc. </p>
+   <p class="issue" id="todo-example-grid"><a class="self-link" href="#todo-example-grid"></a> Add example of some 100%-width images in a grid track whose size
+is determined by something else. </p>
    <h2 class="heading settled" data-level="3" id="security-privacy"><span class="secno">3. </span><span class="content">Security and Privacy Considerations</span><a class="self-link" href="#security-privacy"></a></h2>
    <p>By changing the math of layout calculations,
 this document introduces no new security or privacy considerations.</p>
@@ -1788,9 +1788,9 @@ for participating in various discussions that led to this proposal.</p>
       <td>no
       <td>n/a
       <td>visual
-      <td>length or discrete
+      <td>length or discrete The animation type needs to be more formal
       <td>per grammar
-      <td>keywords as specified, or the absolute length
+      <td>as specified, with lengths made absolute
      <tr>
       <th scope="row"><a class="css" data-link-type="property" href="#propdef-max-content-inline-size">max-content-inline-size</a>
       <td>auto | [ [ &lt;length> | contents ] &amp;&amp; use-inline-size? &amp;&amp; use-min-inline-size? &amp;&amp; use-max-inline-size? ]
@@ -1799,27 +1799,28 @@ for participating in various discussions that led to this proposal.</p>
       <td>no
       <td>n/a
       <td>visual
-      <td>length or discrete
+      <td>length or discrete The animation type needs to be more formal
       <td>per grammar
-      <td>keywords as specified, or the absolute length
+      <td>as specified, with lengths made absolute
    </table>
   </div>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
+   <div class="issue">The animation type needs to be more formal<a href="#issue-bad-anim-type"> ↵ </a></div>
    <div class="issue"> The current proposal uses logical names only (inline-size)
 without providing physical names (width, height).  This could be done.
 It would significantly increase the number of new properties, while
 creating some new properties that would only work some of the time,
 and require yet another set of properties that have physical and logical
-equivalents.<a href="#issue-2ce2a306"> ↵ </a></div>
-   <div class="issue"> The way this proposal allows separately ignoring or honoring <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a> adds a good bit of complexity.  Is it useful enough to be worthwhile?<a href="#issue-ec53a526"> ↵ </a></div>
+equivalents. <a href="#issue-physical-names"> ↵ </a></div>
+   <div class="issue"> The way this proposal allows separately ignoring or honoring <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a> adds a good bit of complexity.  Is it useful enough to be worthwhile? <a href="#issue-ignoring-props-complexity"> ↵ </a></div>
    <div class="issue"> Need to decide whether
 the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value" title="Expands to: em | vb | ch | cm | vh | vi | vw | ex | in | ic | pt | px | lh | pc | rem | rlh | vmax | advance measure | vmin | mm | q">&lt;length></a> value
 affects the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-min-content">min-content</a>, <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-max-content">max-content</a>,
 and <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-fit-content">fit-content</a> keywords
-for <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, etc.<a href="#issue-044b86f4"> ↵ </a></div>
+for <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, etc. <a href="#issue-length-affect-keywords"> ↵ </a></div>
    <div class="issue"> Add example of some 100%-width images in a grid track whose size
-is determined by something else.<a href="#issue-04674bf3"> ↵ </a></div>
+is determined by something else. <a href="#todo-example-grid"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="valdef-min-content-inline-size-auto">
    <b><a href="#valdef-min-content-inline-size-auto">#valdef-min-content-inline-size-auto</a></b><b>Referenced in:</b>
