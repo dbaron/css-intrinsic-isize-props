@@ -1,0 +1,181 @@
+<h1>Proposal for properties to set intrinsic inline sizes</h1>
+
+<pre class="metadata">
+Status: DREAM
+Work Status: Exploring
+Shortname: css-intrinsic-isize-props
+ED: http://dbaron.github.io/css-intrinsic-sizing-one-axis/
+Editor: L. David Baron, Mozilla https://www.mozilla.org/, https://dbaron.org/
+Abstract:  This document proposes additions to [[CSS-SIZING-4]] to add properties to CSS that let CSS authors override the intrinsic inline size calculations done in CSS.
+</pre>
+<!-- terms auto-link to this, but I need to add it manually to cite [[CSS-SIZING-4]] explicitly! -->
+<pre class="biblio">
+{
+    "CSS-SIZING-4": {
+        "authors": [
+            "Tab Atkins Jr.",
+            "Elika Etemad"
+        ],
+        "href": "https://drafts.csswg.org/css-sizing-4/",
+        "title": "CSS Intrinsic & Extrinsic Sizing Module Level 4",
+        "status": "ED",
+        "publisher": "W3C"
+    }
+}
+</pre>
+<pre class="link-defaults">
+spec:css-display-3; type:property; text:display
+spec:css-logical-props-1; type:property; text:inline-size
+</pre>
+
+Introduction {#intro}
+=====================
+
+Traditional document layout,
+and many of the formatting primitives in CSS,
+are based on the model where sizes in the inline dimension 
+(in Latin text, widths) are the input to the layout algorithm
+and sizes in the block dimension (in Latin text, heights) are the output.
+For example, when laying out a newspaper article,
+the width of the column is the input,
+and the words then fill a certain height,
+which is the output.
+In a layout algorithm based on a tree structure like HTML or XML,
+this means that inline sizes (widths)
+are computed from the top of the tree down to the leaves,
+and block sizes (heights) are computed from the leaves back up to the root.
+
+However, there are cases where layout algorithms want to use
+widths that are derived from the content.
+For example,
+table layout should size the table columns
+so that the ones with more content consume more of the space,
+or figures floated (with 'float') to the side of the layout
+should use the width that the figure requires.
+
+For this purpose, CSS describes two intrinsic inline-sizes (widths).
+These are the <a>min-content size</a>, which is intended
+to be the smallest inline-size that an element can become without overflowing,
+and the <a>max-content size</a>,
+which is intended to be the largest inline-size that an element can be
+without wasting extra space that was allocated to it.
+The rules for calculating these sizes vary between the layout primitives
+in CSS (roughly corresponding to the values of 'display').
+These are calculated while traversing the tree from leaves towards the root:
+the intrinsic sizes of an element depend on those of its descendants,
+but not those of its ancestors.
+These sizes can be computed prior to the layout algorithm,
+which sometimes depends on them.
+Thus the overall process of layout could be thought of as
+an upward pass over the tree to compute intrinsic inline sizes,
+followed by a downward pass over the tree to compute final inline sizes,
+and then an upward pass over the tree to compute final block sizes.
+(This is a simplification, and doesn't apply to all formatting primitives.)
+
+The rules for calculating intrinsic sizes
+do not always produce the results that the CSS author wants.
+Sometimes this is because the rules are approximations;
+other times this is because the intrinsic sizes are used in specific ways
+that the author would like to modify, without modifying properties
+that affect the final layout of the element.
+
+Therefore, I propose adding properties that allow CSS authors
+to modify the intrinsic sizes directly,
+without having other effects on layout.
+
+Assigning Intrinsic Inline Sizes {#set-isize}
+=============================================
+
+<pre class="propdef">
+Name: min-content-inline-size, max-content-inline-size
+Value: ''auto'' | [ [ <<length>> | ''min-content-inline-size/contents'' ] && ''use-inline-size''? && ''use-min-inline-size''? && ''use-max-inline-size''? ]
+Initial: auto
+Inherited: no
+Applies to: all elements but non-replaced inline elements, table rows, and row groups
+Computed value: keywords as specified, or the absolute length
+Animation type: length or discrete
+</pre>
+
+<dl dfn-for="min-content-inline-size, max-content-inline-size" dfn-type=value>
+
+	<dt><dfn>auto</dfn>
+	<dd>
+		Equivalent to ''min-content-inline-size/contents'' ''use-inline-size'' ''use-min-inline-size'' ''use-max-inline-size''.
+	</dd>
+
+	<dt><dfn><<length>></dfn>
+	<dd>
+		Use the given length as
+		the <a>min-content inline size</a>
+		or the <a>max-content inline size</a> of the element.
+	</dd>
+
+	<dt><dfn>contents</dfn>
+	<dd>
+		Compute the <a>min-content inline size</a>
+		or the <a>max-content inline size</a> of the element
+		as normal.
+		(This is the normal behavior.)
+	</dd>
+
+	<dt><dfn>use-inline-size</dfn>
+	<dd>
+		When computing the <a>min-content contribution</a>
+		or the <a>max-content contribution</a> of the element,
+		consider the computed value of 'inline-size'.
+		(This is the normal behavior.)
+	</dd>
+
+	<dt><dfn>use-min-inline-size</dfn>
+	<dd>
+		When computing the <a>min-content contribution</a>
+		or the <a>max-content contribution</a> of the element,
+		consider the computed value of 'min-inline-size'.
+		(This is the normal behavior.)
+	</dd>
+
+	<dt><dfn>use-max-inline-size</dfn>
+	<dd>
+		When computing the <a>min-content contribution</a>
+		or the <a>max-content contribution</a> of the element,
+		consider the computed value of 'max-inline-size'.
+		(This is the normal behavior.)
+	</dd>
+
+</dl>
+
+Issue:  The current proposal uses logical names only (inline-size)
+without providing physical names (width, height).  This could be done.
+It would significantly increase the number of new properties, while
+creating some new properties that would only work some of the time,
+and require yet another set of properties that have physical and logical
+equivalents.
+
+Issue: The way this proposal allows separately ignoring or honoring
+'inline-size', 'min-inline-size', and 'max-inline-size'
+adds a good bit of complexity.  Is it useful enough to be worthwhile?
+
+Issue: Need to decide whether
+the <<length>> <!-- FIXME: bad link --> value
+affects the ''width/min-content'', ''width/max-content'',
+and ''width/fit-content'' keywords
+for 'inline-size', 'min-inline-size', 'max-inline-size', 'width', etc.
+
+Issue: Add example of some 100%-width images in a grid track whose size
+is determined by something else.
+
+Security and Privacy Considerations {#security-privacy}
+=======================================================
+
+By changing the math of layout calculations,
+this document introduces no new security or privacy considerations.
+
+Acknowledgements {#acks}
+========================
+
+The author wishes to thank
+Rachel Andrew,
+Elika J. Etemad (fantasai)
+Jen Simmons,
+and the CSS Working Group
+for participating in various discussions that led to this proposal.
