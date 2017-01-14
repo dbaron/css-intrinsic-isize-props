@@ -91,7 +91,7 @@ Name: min-content-inline-size, max-content-inline-size
 Value: ''auto'' | [ [ <<length>> | ''min-content-inline-size/contents'' ] && ''use-inline-size''? && ''use-min-inline-size''? && ''use-max-inline-size''? ]
 Initial: auto
 Inherited: no
-Applies to: all elements but non-replaced inline elements, table rows, and row groups
+Applies to: all elements but non-replaced inline elements, table rows, and table row groups, and table column groups
 Computed value: as specified, with lengths made absolute
 Animation type: length or discrete <span class="issue" id="issue-bad-anim-type">The animation type needs to be more formal</span>
 </pre>
@@ -163,6 +163,13 @@ the <<length>> <!-- FIXME: bad link --> value
 affects the ''width/min-content'', ''width/max-content'',
 and ''width/fit-content'' keywords
 for 'inline-size', 'min-inline-size', 'max-inline-size', 'width', etc.
+
+<p class="issue" id="issue-columns">
+Need to describe the meaning on table cells and columns
+in a little more detail.  Presumably cells are straightforward, and
+setting on a column overrides the contributions from all of the cells,
+and the ''use-inline-size'' etc. keywords only apply to the
+''inline-size'' of the element they're specified on.
 
 <p class="issue" id="todo-example-grid">
 Add example of some 100%-width images in a grid track whose size

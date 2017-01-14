@@ -1371,6 +1371,7 @@ Possible extra rowspan handling
      <dt>This version:
      <dd><a class="u-url" href="http://dbaron.github.io/css-intrinsic-isize-props/">http://dbaron.github.io/css-intrinsic-isize-props/</a>
      <dt>Issue Tracking:
+     <dd><a href="https://github.com/dbaron/css-intrinsic-isize-props/issues/">GitHub</a>
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://dbaron.org/">L. David Baron</a> (<a class="p-org org" href="https://www.mozilla.org/">Mozilla</a>)
@@ -1476,7 +1477,7 @@ without having other effects on layout.</p>
       <td>auto
      <tr>
       <th>Applies to:
-      <td>all elements but non-replaced inline elements, table rows, and row groups
+      <td>all elements but non-replaced inline elements, table rows, and table row groups, and table column groups
      <tr>
       <th>Inherited:
       <td>no
@@ -1531,6 +1532,10 @@ the <a class="production css" data-link-type="type" href="https://drafts.csswg.o
 affects the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-min-content">min-content</a>, <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-max-content">max-content</a>,
 and <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-fit-content">fit-content</a> keywords
 for <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, etc. </p>
+   <p class="issue" id="issue-columns"><a class="self-link" href="#issue-columns"></a> Need to describe the meaning on table cells and columns
+in a little more detail.  Presumably cells are straightforward, and
+setting on a column overrides the contributions from all of the cells,
+and the <a class="css" data-link-type="maybe" href="#valdef-min-content-inline-size-use-inline-size" id="ref-for-valdef-min-content-inline-size-use-inline-size-3">use-inline-size</a> etc. keywords only apply to the <span class="css">inline-size</span> of the element they’re specified on. </p>
    <p class="issue" id="todo-example-grid"><a class="self-link" href="#todo-example-grid"></a> Add example of some 100%-width images in a grid track whose size
 is determined by something else. </p>
    <h2 class="heading settled" data-level="3" id="security-privacy"><span class="secno">3. </span><span class="content">Security and Privacy Considerations</span><a class="self-link" href="#security-privacy"></a></h2>
@@ -1784,7 +1789,7 @@ for participating in various discussions that led to this proposal.</p>
       <th scope="row"><a class="css" data-link-type="property" href="#propdef-min-content-inline-size">min-content-inline-size</a>
       <td>auto | [ [ &lt;length> | contents ] &amp;&amp; use-inline-size? &amp;&amp; use-min-inline-size? &amp;&amp; use-max-inline-size? ]
       <td>auto
-      <td>all elements but non-replaced inline elements, table rows, and row groups
+      <td>all elements but non-replaced inline elements, table rows, and table row groups, and table column groups
       <td>no
       <td>n/a
       <td>visual
@@ -1795,7 +1800,7 @@ for participating in various discussions that led to this proposal.</p>
       <th scope="row"><a class="css" data-link-type="property" href="#propdef-max-content-inline-size">max-content-inline-size</a>
       <td>auto | [ [ &lt;length> | contents ] &amp;&amp; use-inline-size? &amp;&amp; use-min-inline-size? &amp;&amp; use-max-inline-size? ]
       <td>auto
-      <td>all elements but non-replaced inline elements, table rows, and row groups
+      <td>all elements but non-replaced inline elements, table rows, and table row groups, and table column groups
       <td>no
       <td>n/a
       <td>visual
@@ -1819,6 +1824,10 @@ the <a class="production css" data-link-type="type" href="https://drafts.csswg.o
 affects the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-min-content">min-content</a>, <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-max-content">max-content</a>,
 and <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-sizing-4/#valdef-width-fit-content">fit-content</a> keywords
 for <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, etc. <a href="#issue-length-affect-keywords"> ↵ </a></div>
+   <div class="issue"> Need to describe the meaning on table cells and columns
+in a little more detail.  Presumably cells are straightforward, and
+setting on a column overrides the contributions from all of the cells,
+and the <a class="css" data-link-type="maybe" href="#valdef-min-content-inline-size-use-inline-size">use-inline-size</a> etc. keywords only apply to the <span class="css">inline-size</span> of the element they’re specified on. <a href="#issue-columns"> ↵ </a></div>
    <div class="issue"> Add example of some 100%-width images in a grid track whose size
 is determined by something else. <a href="#todo-example-grid"> ↵ </a></div>
   </div>
@@ -1837,7 +1846,7 @@ is determined by something else. <a href="#todo-example-grid"> ↵ </a></div>
   <aside class="dfn-panel" data-for="valdef-min-content-inline-size-use-inline-size">
    <b><a href="#valdef-min-content-inline-size-use-inline-size">#valdef-min-content-inline-size-use-inline-size</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-valdef-min-content-inline-size-use-inline-size-1">2. Assigning Intrinsic Inline Sizes</a> <a href="#ref-for-valdef-min-content-inline-size-use-inline-size-2">(2)</a>
+    <li><a href="#ref-for-valdef-min-content-inline-size-use-inline-size-1">2. Assigning Intrinsic Inline Sizes</a> <a href="#ref-for-valdef-min-content-inline-size-use-inline-size-2">(2)</a> <a href="#ref-for-valdef-min-content-inline-size-use-inline-size-3">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="valdef-min-content-inline-size-use-min-inline-size">
