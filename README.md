@@ -1,1 +1,1 @@
-http://dbaron.github.io/css-intrinsic-isize-props/
+https://dbaron.github.io/css-intrinsic-isize-props/

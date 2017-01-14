@@ -4,7 +4,7 @@
 Status: DREAM
 Work Status: Exploring
 Shortname: css-intrinsic-isize-props
-ED: http://dbaron.github.io/css-intrinsic-isize-props/
+ED: https://dbaron.github.io/css-intrinsic-isize-props/
 Editor: L. David Baron, Mozilla https://www.mozilla.org/, https://dbaron.org/
 Abstract:  This document proposes additions to [[CSS-SIZING-4]] to add properties to CSS that let CSS authors override the intrinsic inline size calculations done in CSS.
 </pre>
