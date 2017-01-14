@@ -186,7 +186,7 @@ Acknowledgements {#acks}
 
 The author wishes to thank
 Rachel Andrew,
-Elika J. Etemad (fantasai)
+Elika J. Etemad (fantasai),
 Jen Simmons,
 and the CSS Working Group
 for participating in various discussions that led to this proposal.
