@@ -1176,7 +1176,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 176d39d5a285c04f57d2f0e078fa69273028eb45" name="generator">
+  <meta content="Bikeshed version 237216488a585c6f0fbfeb6dc67a26c10fd1d88d" name="generator">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1365,7 +1365,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1>Proposal for properties to set intrinsic inline sizes</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2017-01-14">14 January 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2017-01-23">23 January 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1380,7 +1380,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 14 January 2017,
+In addition, as of 23 January 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1521,9 +1521,10 @@ without having other effects on layout.</p>
 		(This is the normal behavior.) 
    </dl>
    <p class="issue" id="issue-physical-names"><a class="self-link" href="#issue-physical-names"></a> The current proposal uses logical names only (inline-size)
-without providing physical names (width, height).  This could be done.
-It would significantly increase the number of new properties, while
-creating some new properties that would only work some of the time,
+without providing physical names (width, height).
+Providing physical names could be done.
+However, it would significantly increase the number of new properties,
+while creating some new properties that would only work some of the time,
 and require yet another set of properties that have physical and logical
 equivalents. </p>
    <p class="issue" id="issue-ignoring-props-complexity"><a class="self-link" href="#issue-ignoring-props-complexity"></a> The way this proposal allows separately ignoring or honoring <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a> adds a good bit of complexity.  Is it useful enough to be worthwhile? </p>
@@ -1813,9 +1814,10 @@ for participating in various discussions that led to this proposal.</p>
   <div style="counter-reset:issue">
    <div class="issue">The animation type needs to be more formal<a href="#issue-bad-anim-type"> ↵ </a></div>
    <div class="issue"> The current proposal uses logical names only (inline-size)
-without providing physical names (width, height).  This could be done.
-It would significantly increase the number of new properties, while
-creating some new properties that would only work some of the time,
+without providing physical names (width, height).
+Providing physical names could be done.
+However, it would significantly increase the number of new properties,
+while creating some new properties that would only work some of the time,
 and require yet another set of properties that have physical and logical
 equivalents. <a href="#issue-physical-names"> ↵ </a></div>
    <div class="issue"> The way this proposal allows separately ignoring or honoring <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-inline-size">inline-size</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-min-inline-size">min-inline-size</a>, and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-logical-props-1/#propdef-max-inline-size">max-inline-size</a> adds a good bit of complexity.  Is it useful enough to be worthwhile? <a href="#issue-ignoring-props-complexity"> ↵ </a></div>

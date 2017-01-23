@@ -146,9 +146,10 @@ Animation type: length or discrete <span class="issue" id="issue-bad-anim-type">
 
 <p class="issue" id="issue-physical-names">
 The current proposal uses logical names only (inline-size)
-without providing physical names (width, height).  This could be done.
-It would significantly increase the number of new properties, while
-creating some new properties that would only work some of the time,
+without providing physical names (width, height).
+Providing physical names could be done.
+However, it would significantly increase the number of new properties,
+while creating some new properties that would only work some of the time,
 and require yet another set of properties that have physical and logical
 equivalents.
 
